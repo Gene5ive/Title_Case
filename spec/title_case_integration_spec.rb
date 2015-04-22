@@ -1,4 +1,4 @@
-require('capybara/spec')
+require('capybara/rspec')
 require('./app')
 Capybara.app = Sinatra::Application
 
@@ -7,6 +7,6 @@ describe('the title case path', {:type => :feature}) do
     visit('/')
     fill_in('title', :with => 'green eggs and ham')
     click_button('Send')
-    expect(page).to have_content('Green eggs and Ham')
+    expect(page).to have_content('Green Eggs and Ham')
   end
 end

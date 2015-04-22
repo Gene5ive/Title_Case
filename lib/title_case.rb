@@ -1,9 +1,15 @@
 class String
   define_method(:title_case) do
-    words = self.split(" ")
+    title_cased = []
+    special_words = ["to", "the", "of", "from", "and", "but", "or", "by", "on"]
+    words = self.split()
     words.each() do |word|
-      word.capitalize!()
+      if (word != words.at(0)) && (special_words.include?(word))
+        title_cased.push(word)
+      else
+        title_cased.push(word.capitalize)
+      end
     end
-    words.join(" ")
+    title_cased.join(" ")
   end
 end
